@@ -1,6 +1,6 @@
 <?php
 
-include "config.php";
+// include "config.php";
 
 // Function defnition 
 function alert($message)
@@ -10,53 +10,53 @@ function alert($message)
     echo "<script>alert('$message');</script>";
 }
 
-if (isset($_POST['login'])) {
+// if (isset($_POST['login'])) {
 
-    $validUser = false;
+//     $validUser = false;
 
 
 
-    // Store the submitted data sent 
-    // via POST method, stored  
-    // Temporarily in $_POST structure. 
-    $_SESSION['user_email'] = $_POST['email'];
-    // echo $_SESSION['user_email'];
+//     // Store the submitted data sent 
+//     // via POST method, stored  
+//     // Temporarily in $_POST structure. 
+//     $_SESSION['user_email'] = $_POST['email'];
+//     // echo $_SESSION['user_email'];
 
-    $_SESSION['user_password'] = $_POST['password'];
-    // echo $_SESSION['user_password'];
+//     $_SESSION['user_password'] = $_POST['password'];
+//     // echo $_SESSION['user_password'];
 
-    $sql = "SELECT user_id,user_email,user_password FROM user";
-    $result = $con->query($sql);
+//     $sql = "SELECT user_id,user_email,user_password FROM user";
+//     $result = $con->query($sql);
 
-    //check for valid users
-    while ($row = $result->fetch_assoc()) {
-        if ($_SESSION["user_email"] == $row["user_email"] && $_SESSION["user_password"] == $row["user_password"]) {
-            $validUser = true;
-            break;
-        }
-        // echo "user_id: " . $row["user_id"] . " - user_email: " . $row["user_email"] . " " . $row["user_password"] . "<br>";
-    }
+//     //check for valid users
+//     while ($row = $result->fetch_assoc()) {
+//         if ($_SESSION["user_email"] == $row["user_email"] && $_SESSION["user_password"] == $row["user_password"]) {
+//             $validUser = true;
+//             break;
+//         }
+//         // echo "user_id: " . $row["user_id"] . " - user_email: " . $row["user_email"] . " " . $row["user_password"] . "<br>";
+//     }
 
-    if ($validUser) {
-        if ($_SESSION['user_email'] == "admin@uni.ca") {
-            header('Location: admin_view.php');
-        } else if ($_SESSION['user_email'] == "nd@uni.ca") {
+//     if ($validUser) {
+//         if ($_SESSION['user_email'] == "admin@uni.ca") {
+//             header('Location: admin_view.php');
+//         } else if ($_SESSION['user_email'] == "nd@uni.ca") {
 
-            header('Location: nd_view.php');
-        } else if ($_SESSION['user_email'] == "sd@uni.ca") {
+//             header('Location: nd_view.php');
+//         } else if ($_SESSION['user_email'] == "sd@uni.ca") {
 
-            header('Location: sd_view.php');
-        } else if ($_SESSION['user_email'] == "verdun@uni.ca") {
+//             header('Location: sd_view.php');
+//         } else if ($_SESSION['user_email'] == "verdun@uni.ca") {
 
-            header('Location: verdun_view.php');
-        } else {
-            header('Location: italy_view.php');
-        }
-    } else {
-        alert("Invalid email and password! Please contact your manager for correct credentials");
-    }
-    $con->close();
-}
+//             header('Location: verdun_view.php');
+//         } else {
+//             header('Location: italy_view.php');
+//         }
+//     } else {
+//         alert("Invalid email and password! Please contact your manager for correct credentials");
+//     }
+//     $con->close();
+// }
 
 ?>
 
@@ -123,8 +123,13 @@ if (isset($_POST['login'])) {
 
         </div>
 
+        <br>
+        <div class="container shadow-lg  ">
+            <h1 class="display-6"> Join VapeFree?</h1>
 
 
+            <span class="" style=" margin-left: 40px;">Sign Up(Will be added soon)</span>
+        </div>
 
         <br>
 
@@ -132,17 +137,17 @@ if (isset($_POST['login'])) {
         <div class="d-flex justify-content-evenly shadow-lg">
 
 
-            <form action="index.php" method="post" style="display: inline-block;">
+            <form action="home.php" method="post" style="display: inline-block;">
                 <div class="mb-3">
                     <h3 class="display-6">Existing User</h3>
                     <br>
                     <br>
                     <label class="form-label text-dark fw-bold display-8">Email address</label>
-                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+                    <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label text-dark fw-bold display-8" required>Password</label>
+                    <label class="form-label text-dark fw-bold display-8">Password</label>
                     <input type="password" class="form-control" name="password">
                 </div>
 
