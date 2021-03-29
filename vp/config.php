@@ -3,7 +3,7 @@ session_start();
 $host = "127.0.0.1"; /* Host name */
 $user = "root"; /* User */
 $password = ""; /* Password */
-$dbname = "unimanagement"; /* Database name */
+$dbname = "vp"; /* Database name */
 
 $con = mysqli_connect($host, $user, $password, $dbname);
 // Check connection
