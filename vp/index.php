@@ -26,10 +26,8 @@ if (isset($_POST['login'])) {
     // via POST method, stored  
     // Temporarily in $_POST structure. 
     $_SESSION['user_email'] = $_POST['email'];
-    // echo $_SESSION['user_email'];
-
     $_SESSION['user_password'] = $_POST['password'];
-    // echo $_SESSION['user_password'];
+
 
     $sql = "SELECT user_id,user_email,user_password FROM user";
     $result = $con->query($sql);
@@ -38,6 +36,10 @@ if (isset($_POST['login'])) {
     while ($row = $result->fetch_assoc()) {
         if ($_SESSION["user_email"] == $row["user_email"] && $_SESSION["user_password"] == $row["user_password"]) {
             $validUser = true;
+
+            //store Full Name
+            $_SESSION["first_name"] = $row["first_name"];
+            $_SESSION["last_name"] = $row["last_name"];
             break;
         }
         // echo "user_id: " . $row["user_id"] . " - user_email: " . $row["user_email"] . " " . $row["user_password"] . "<br>";

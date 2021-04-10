@@ -10,53 +10,68 @@ function alert($message)
     echo "<script>alert('$message');</script>";
 }
 
-// if (isset($_POST['login'])) {
+$vapeSuggestions = array(
+    "There’s a strong link between smoking and cardiovascular disease, and between smoking and cancer",
+    "Quitting smoking is one of the best things you can do for your health — smoking harms nearly every organ in your body, including your heart.",
+    "Talk to your doctor about what smoking cessation program or tools would be best for you."
+);
 
-//     $validUser = false;
+function printVapeSuggestions()
+{
+    $randomIndex = rand(0, 2); //min=0 and max=2 for now can change based on array items
+
+    global $vapeSuggestions;
+
+    print($vapeSuggestions[$randomIndex]);
+}
 
 
 
-//     // Store the submitted data sent 
-//     // via POST method, stored  
-//     // Temporarily in $_POST structure. 
-//     $_SESSION['user_email'] = $_POST['email'];
-//     // echo $_SESSION['user_email'];
+//store first and last name
+$email = $_SESSION['user_email'];
+$sql = "SELECT first_name,last_name,user_id FROM user WHERE user_email='$email'";
+$result = $con->query($sql);
 
-//     $_SESSION['user_password'] = $_POST['password'];
-//     // echo $_SESSION['user_password'];
+if ($result->num_rows > 0) {
+    // output data of each row
+    while ($row = $result->fetch_assoc()) {
+        $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['last_name'] = $row['last_name'];
+        $_SESSION['user_id'] = $row['user_id'];
+    }
+}
 
-//     $sql = "SELECT user_id,user_email,user_password FROM user";
-//     $result = $con->query($sql);
+//Printing journal entries
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT j_id,user_id,entry FROM journal WHERE user_id='$user_id'";
+$result = $con->query($sql);
 
-//     //check for valid users
-//     while ($row = $result->fetch_assoc()) {
-//         if ($_SESSION["user_email"] == $row["user_email"] && $_SESSION["user_password"] == $row["user_password"]) {
-//             $validUser = true;
-//             break;
-//         }
-//         // echo "user_id: " . $row["user_id"] . " - user_email: " . $row["user_email"] . " " . $row["user_password"] . "<br>";
-//     }
 
-//     if ($validUser) {
-//         if ($_SESSION['user_email'] == "admin@uni.ca") {
-//             header('Location: admin_view.php');
-//         } else if ($_SESSION['user_email'] == "nd@uni.ca") {
+//BUTTONS BEING CLICKED
 
-//             header('Location: nd_view.php');
-//         } else if ($_SESSION['user_email'] == "sd@uni.ca") {
+if (isset($_POST['addNewEntry'])) {
 
-//             header('Location: sd_view.php');
-//         } else if ($_SESSION['user_email'] == "verdun@uni.ca") {
+    $newEntry = $_POST['newEntry'];
 
-//             header('Location: verdun_view.php');
-//         } else {
-//             header('Location: italy_view.php');
-//         }
-//     } else {
-//         alert("Invalid email and password! Please contact your manager for correct credentials");
-//     }
-//     $con->close();
-// }
+    $sql = "INSERT INTO journal(user_id,entry) VALUES('$user_id','$newEntry')";
+
+    //check if a connection is made
+    if ($con->query($sql) == TRUE) {
+        echo "A new entry was successfully added";
+    } else {
+        echo "Error: " . $sql . "<br>" . $con->error;
+    }
+}
+
+
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header('Location: index.php');
+}
+
+
+// $con->close();
+
 
 ?>
 
@@ -64,7 +79,7 @@ function alert($message)
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Home</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -95,35 +110,110 @@ function alert($message)
         </nav>
 
         <br>
-
-
         <br>
 
 
         <div class="d-flex justify-content-evenly shadow-lg">
             <h1>Welcome Home</h1>
+        </div>
+
+        <form action="home.php" method="post">
+            <button name="logout" class="btn btn-primary">Logout</button>
+        </form>
+
+        <br>
+        <br>
+
+        <!-- User Info -->
+        <div class="container text-center display-3">
+            <h1 class="display-3">User Info</h1><br>
+            <h1 class="display-6">First Name: <?php print($_SESSION['first_name']) ?></h1>
+            <h1 class="display-6">Last Name: <?php print($_SESSION['last_name']) ?></h1>
+            <h1 class="display-6">Email: <?php print($_SESSION['user_email']) ?></h1>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- healthy suggestions -->
+        <div class="container text-center ">
+            <h1 class="display-3">Healthy Suggestions</h1>
+            <?php printVapeSuggestions(); ?>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- Personal Journal -->
+        <div class="container text-center ">
+            <h1 class="display-3">Personal Journal</h1>
 
         </div>
 
         <br>
         <br>
 
-        <nav class="nav navbar-light bg-light d-flex justify-content-evenly shadow-lg">
-            <a class="nav-link active" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                </svg><br>Home</a>
-            <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5z" />
-                </svg><br>Track</a>
-            <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-square-text" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                    <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
-                </svg><br>Feed</a>
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </nav>
+        <?php
+        $user_id = $_SESSION['user_id'];
+        $sql = "SELECT j_id,user_id,entry FROM journal WHERE user_id='$user_id' ORDER BY j_id DESC";
+        $result = $con->query($sql);
+        ?>
+        <table class="table table-striped">
+            <tr>
+                <th>Entry ID</th>
+                <th>User ID</th>
+                <th>Journal Entry</th>
+            </tr>
 
-        <br>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    print("<tr>");
+                    print("<td>" . $row['j_id'] . "</td>");
+                    print("<td>" . $row['user_id'] . "</td>");
+                    print("<td>" . $row['entry'] . "</td>");
+                }
+            }
+
+            ?>
+
+            <?php
+            print("<tr>");
+
+            print("</table>");
+
+            ?>
+            <br>
+            <br>
+            <!--Adding a new journal entry -->
+            <div class="form-group container text-center">
+                <form action="home.php" method="post">
+                    <label>Write a new entry</label>
+                    <textarea class="form-control" name="newEntry" rows="3"></textarea>
+                    <button name="addNewEntry" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+
+
+            <br>
+            <br>
+
+            <nav class="nav navbar-light bg-light d-flex justify-content-evenly shadow-lg nav-pills">
+                <a class="nav-link active" aria-current="page" href="home.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                        <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                    </svg><br>Home</a>
+                <a class="nav-link" href="track.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5z" />
+                    </svg><br>Track</a>
+                <a class="nav-link" href="feed.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-chat-square-text" viewBox="0 0 16 16">
+                        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                    </svg><br>Feed</a>
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </nav>
+
+            <br>
 
 
 

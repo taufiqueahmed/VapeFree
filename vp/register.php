@@ -14,6 +14,32 @@ if (isset($_POST['home'])) {
     header('Location: index.php');
 }
 
+if (isset($_POST['register'])) {
+    $first_name = $_POST["first_name"];
+    $last_name = $_POST["last_name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    //Debugging
+    echo "First Name: " . $first_name;
+    echo "Last Name: " . $last_name;
+    echo "email: " . $email;
+    echo "password: " . $password;
+
+    //Sql queries for inserting new user
+    $sql = "INSERT INTO user (user_email,user_password,first_name,last_name)
+    VALUES('$email','$password','$first_name','$last_name')";
+
+    //check if a connection is made
+    if ($con->query($sql) == TRUE) {
+        echo "You have successfully Registered.Please login in";
+    } else {
+        echo "Error: " . $sql . "<br>" . $con->error;
+    }
+
+    $con->close();
+}
+
 // if (isset($_POST['login'])) {
 
 //     $validUser = false;
