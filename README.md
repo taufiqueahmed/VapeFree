@@ -1,2 +1,23 @@
 # vapetracker2.0
 SOEN357
+
+Current Views
+
+Index page:<br>
+<b>*Note bottom quote can be removed to maybe include terms and conditons etc</b>
+<img width="960" alt="index_view" src="https://user-images.githubusercontent.com/32074351/114279343-1ce03580-9a02-11eb-99bf-0aa2e4886e09.PNG"><br>
+
+Home page:<br>
+<b>*Note each time you referesh a new healthy suggestion is displayed from the array of suggestions, more can be added</b>
+<img width="960" alt="home_view" src="https://user-images.githubusercontent.com/32074351/114279364-45682f80-9a02-11eb-9885-fa0f2df2a5a2.PNG">
+
+Track page:<br>
+<b>*Note it is not yet complete I will add the logic as soon as possible</b>
+<img width="959" alt="track_view" src="https://user-images.githubusercontent.com/32074351/114279419-a263e580-9a02-11eb-8340-9064ea900d77.PNG">
+
+Feed page:<br>
+<img width="960" alt="feed_view" src="https://user-images.githubusercontent.com/32074351/114279445-b7d90f80-9a02-11eb-8783-56c4d4e6ff7b.PNG">
+
+
+
+
