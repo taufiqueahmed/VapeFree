@@ -1,7 +1,7 @@
 # vapeFree
 ![vapefree_logo](https://user-images.githubusercontent.com/32074351/115099523-6b129e80-9f04-11eb-9004-60c468275a40.png)<br>
 
-Application: https://vapefree.online/ 
+<b>Application:</b> https://vapefree.online/ 
 
 Current Views
 
