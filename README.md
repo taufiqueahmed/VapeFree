@@ -16,7 +16,8 @@ Track page:<br>
 
 
 Feed page:<br>
-<img width="960" alt="feed_view" src="https://user-images.githubusercontent.com/32074351/114279445-b7d90f80-9a02-11eb-8783-56c4d4e6ff7b.PNG">
+<img width="960" alt="feed_view" src="https://user-images.githubusercontent.com/32074351/115099478-1a9b4100-9f04-11eb-8c48-4f0e01d21733.PNG">
+
 
 
 
