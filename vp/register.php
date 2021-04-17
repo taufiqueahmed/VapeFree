@@ -94,50 +94,40 @@ if (isset($_POST['register'])) {
 <html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@550&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
     <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 
 <body>
-
-    <div></div>
-
     <div class="container-fluid">
+        
+                <!---Main header -->
+        <div id="logo-header" class="text-center">
+            <img id="logo" src="assets/vapefree_logo.png" alt="logo">
+        </div>
 
-
-        <!---Main header -->
-        <nav class="navbar navbar-light bg-light shadow-lg">
-            <div class="container-fluid ">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/vapefree_logo.png" alt="" width="90" height="90">
-                </a>
-                <h3 class="text-center text-primary">VapeFree</h3>
-            </div>
+        <nav class="glassmorphic-nav">
+            <ul class="navbar">
+                <li><a href="index.php">LOGIN</a></li>
+                <li><a href="register.php">REGISTER</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>    
         </nav>
 
-        <br>
+        <div id="register-block"  class="glassmorphic">
+            <form class="login-form" action="register.php" method="post">
+           
+            <h1 class="h3 text-center login-signup-title">CREATE AN ACCOUNT</h1> 
 
-
-        <br>
-
-
-        <div class="d-flex justify-content-evenly shadow-lg">
-
-
-            <form action="register.php" method="post" style="display: inline-block;">
-                <h1>Registeration</h1>
-                <h3 class="display-6">Fill in the form</h3>
-                <br>
-                <br>
                 <div class="mb-3">
                     <label class="form-label text-dark fw-bold display-8">First Name</label>
                     <input type="text" class="form-control" name="first_name" required>
@@ -149,44 +139,23 @@ if (isset($_POST['register'])) {
                 <div class="mb-3">
                     <label class="form-label text-dark fw-bold display-8">Email address</label>
                     <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label text-dark fw-bold display-8">Password</label>
                     <input type="password" class="form-control" name="password">
                 </div>
 
-                <button type="submit" class="btn btn-success" name="register">Register</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary" name="register">Register</button>
+                </div>
+                
+                <div class="text-center register-link">
+                        <a href="index.php">Already have an account?</a>
+                </div>
+                
 
             </form>
-
-            <form action="register.php" method="post">
-                <button type="submit" class="btn btn-primary" name="home">Home</button>
-            </form>
-
         </div>
-
-        <br>
-        <br>
-
-        <nav class="navbar navbar-light bg-light d-flex justify-content-evenly shadow-lg">
-            <div class="card ">
-                <div class="card-header">
-                    Quote
-                </div>
-                <div class="card-body ">
-                    <blockquote class="blockquote mb-0">
-                        <p>Spread Smiles, Spread Love and Triumph Together.</p>
-                        <footer class="blockquote-footer">Created by <cite title="Source Title">Taufique Ahmed</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-        </nav>
-
-        <br>
-
-
-
     </div>
     <br>
 
