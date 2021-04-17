@@ -117,20 +117,29 @@ if (isset($_POST['logout'])) {
             <h1>Welcome Home</h1>
         </div>
 
-        <form action="home.php" method="post">
-            <button name="logout" class="btn btn-primary">Logout</button>
-        </form>
 
         <br>
         <br>
 
         <!-- User Info -->
         <div class="container text-center display-3">
-            <h1 class="display-3">User Info</h1><br>
-            <h1 class="display-6">First Name: <?php print($_SESSION['first_name']) ?></h1>
-            <h1 class="display-6">Last Name: <?php print($_SESSION['last_name']) ?></h1>
-            <h1 class="display-6">Email: <?php print($_SESSION['user_email']) ?></h1>
+            <h4 class="display-5">User Info</h4>
+            <h6 class="display-6">First Name: <?php print($_SESSION['first_name']) ?></h6>
+            <h6 class="display-6">Last Name: <?php print($_SESSION['last_name']) ?></h6>
+            <h6 class="display-6">User ID: <?php print($_SESSION['user_id']) ?></h6>
+            <h6 class="display-6">Email: <?php print($_SESSION['user_email']) ?></h6>
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col text-center">
+                        <form action="home.php" method="post">
+                            <button name="logout" class="btn btn-primary">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
 
         <br>
         <br>
@@ -210,7 +219,7 @@ if (isset($_POST['logout'])) {
                         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                         <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                     </svg><br>Feed</a>
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+
             </nav>
 
             <br>

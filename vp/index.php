@@ -63,6 +63,12 @@ if (isset($_POST['login'])) {
     <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="VapeFree" />
+    <meta property="og:type" content="vapefree.online" />
+    <meta property="og:url" content="https://vapefree.online/" />
+    <meta property="og:image" content="https://vapefree.online/assets/meta_page.PNG" />
+    <meta property="og:description" content="An Application that allows the user to keep track and give them feedback on their vape usage" />
+    <meta name="theme-color" content="#1ae5f0">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
