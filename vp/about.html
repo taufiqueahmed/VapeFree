@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@550&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function showMoreDetailsForVapeTracking() {
+            if (document.getElementById("showMoreDetailsForVapeTracking").innerHTML == "") {
+
+                document.getElementById("showMoreDetailsForVapeTracking").innerHTML = "- For example, if the difference between the end date and the beginning date in order to finish a 2ml pod is 3 days, we would then suggest to our user to stretch the end date, to make the difference to 5 days.As a result, a user will be encouraged to vape less to reach the goal.<br>";
+
+            } else {
+                document.getElementById("showMoreDetailsForVapeTracking").innerHTML = "";
+            }
+
+        }
+
+        function showMoreDetailsForVapeGlobalForum() {
+            if (document.getElementById("showMoreDetailsForVapeGlobalForum").innerHTML == "") {
+
+                document.getElementById("showMoreDetailsForVapeGlobalForum").innerHTML = "- A global forum can be utilized to share common thoughts. <br>";
+
+            } else {
+                document.getElementById("showMoreDetailsForVapeGlobalForum").innerHTML = "";
+            }
+
+        }
+
+        function showMoreDetailsForVapeJournal() {
+            if (document.getElementById("showMoreDetailsForVapeJournal").innerHTML == "") {
+
+                document.getElementById("showMoreDetailsForVapeJournal").innerHTML = "- For the end users that want to keep their thoughts to themselves, they can use a builtin in journal to write their thoughts. These thoughts should be based on their vaping experiences.They can be positive or negative thoughts.<br>";
+
+            } else {
+                document.getElementById("showMoreDetailsForVapeJournal").innerHTML = "";
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+        <!---Main header -->
+        <div id="logo-header" class="text-center">
+            <img id="logo" src="assets/vapefree_logo.png" alt="logo">
+        </div>
+
+        <nav class="glassmorphic-nav">
+            <ul class="navbar">
+                <li><a href="index.php">LOGIN</a></li>
+                <li><a href="register.php">REGISTER</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>    
+        </nav>
+                
+        <div id="about-block" class="glassmorphic">
+            <div class="container">
+                <h1 class="h3 text-center login-signup-title">ABOUT US</h1> 
+                <h3> What is VapeFree?</h3>
+                <span>An Application that allows the user to keep track and give them feedback on their vape usage.</span>
+            </div>
+
+            <div class="container qna">
+                <h3> How do we keep track of vape usage?</h3>
+                <span>(1) VapeFree will request the user to input the beginning and end date of a nicotine pod.<br/><br/></span>
+                <span>(2) The time lapse would be an index of their vaping usage.</span>
+            </div>
+
+            <div class="container qna">
+                <h3> How do we provide feedback for vape usage?</h3>
+
+                <span>(1) VapeFree will utilize the user's time lapse data to suggest and stretch a new end date for the next pod consumption.
+                <br/><button class="btn btn-link" onclick="showMoreDetailsForVapeTracking()">More Details</button>
+                </span>
+                <div class="container border border-primary shadow-lg" id="showMoreDetailsForVapeTracking"></div>
+
+                <span>(2) VapeFree will allow users to share their thoughts in a global forum.
+                <br/><button class="btn btn-link " onclick="showMoreDetailsForVapeGlobalForum()">More Details</button><br></span>
+                <div class="container border border-primary shadow-lg" id="showMoreDetailsForVapeGlobalForum"></div>
+
+                <span>(3) VapeFree will allow users to journal their thoughts.
+                <br/><button class="btn btn-link " onclick="showMoreDetailsForVapeJournal()">More Details</button><br></span>
+                <div class="container border border-primary shadow-lg" id="showMoreDetailsForVapeJournal"></div>
+                <br>
+
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+
+</body>
+
+</html>
