@@ -12,8 +12,8 @@ Home page:<br>
 <img width="960" alt="home_view" src="https://user-images.githubusercontent.com/32074351/114279364-45682f80-9a02-11eb-9885-fa0f2df2a5a2.PNG">
 
 Track page:<br>
-<b>*Note it is not yet complete I will add the logic as soon as possible</b>
-<img width="959" alt="track_view" src="https://user-images.githubusercontent.com/32074351/114279419-a263e580-9a02-11eb-8340-9064ea900d77.PNG">
+<img width="960" alt="track2_view" src="https://user-images.githubusercontent.com/32074351/115099429-bb3d3100-9f03-11eb-8c61-5811f2fff77f.PNG">
+
 
 Feed page:<br>
 <img width="960" alt="feed_view" src="https://user-images.githubusercontent.com/32074351/114279445-b7d90f80-9a02-11eb-8783-56c4d4e6ff7b.PNG">
