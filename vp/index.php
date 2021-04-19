@@ -75,7 +75,8 @@ if (isset($_POST['login'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
     <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
+       <!--<link rel="stylesheet" type="text/css" href="style.css">-->
 </head>
 
 <body>
@@ -86,16 +87,16 @@ if (isset($_POST['login'])) {
             <img id="logo" src="assets/vapefree_logo.png" alt="logo">
         </div>
 
-        <nav class="glassmorphic-nav ">
-            <ul class="navbar container">
+        <nav class=" glassmorphic-nav">
+            <ul class="navbar">
                 <li><a class="btn btn-outline-primary" href="index.php">Login</a></li>
                 <li><a class="btn btn-outline-primary " href="register.php">Register</a></li>
                 <li><a class="btn btn-outline-primary" href="about.html">About</a></li>
             </ul>
         </nav>
 
-        <div id="login-signup-block" class="glassmorphic  justify-content-evenly ">
-
+        <div id="login-signup-block" class="glassmorphic  ">
+            <div class="container">
             <h1 class="h3 text-center login-signup-title">ACCESS YOUR ACCOUNT</h1>
 
             <div class="login-form">
@@ -138,6 +139,7 @@ if (isset($_POST['login'])) {
 
                 </form>
             </div>
+          </div>
         </div>
 
         <div class="card glassmorphic qotd">

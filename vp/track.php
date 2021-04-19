@@ -181,8 +181,9 @@ if (isset($_POST['logout'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-    <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+     <link rel="stylesheet" type="text/css" href="test.css">
 
     <script>
         window.onload = function() {
@@ -261,7 +262,7 @@ if (isset($_POST['logout'])) {
                 <div class=" col border border-dark shadow">
                 <h6 class="">ICON</h6>
                 <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-                <lord-icon src="https://cdn.lordicon.com/rfldwidq.json" trigger="loop" delay="1000" colors="primary:#121331,secondary:#1663c7" style="width:250px;height:250px">
+                <lord-icon src="https://cdn.lordicon.com/rfldwidq.json" trigger="loop" delay="1000" colors="primary:#121331,secondary:#1663c7" style="width:100px;height:100px">
                 </lord-icon>
             </div>
             <?php

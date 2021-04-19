@@ -1,7 +1,6 @@
 body {
-    /** fit background image to screen size without scrolling **/
-    background: url("assets/abstractBG.png") no-repeat center center fixed;
-    -webkit-background-size: cover;
+     background: url(assets/abstractBG.png) no-repeat center center fixed;
+     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
@@ -15,12 +14,6 @@ body {
 a:link {
     text-decoration: none;
 }
-
-a:visited {}
-
-a:hover {}
-
-a:active {}
 
 .error-text {
     color: red;
@@ -59,9 +52,9 @@ a:active {}
     margin-bottom: 2%;
 }
 
-.btn {
-    width: 200px;
-}
+/*.btn {*/
+/*    width: 200px;*/
+/*}*/
 
 .qna {
     margin-top: 5%;
@@ -95,7 +88,7 @@ a:active {}
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
     backdrop-filter: blur( 8.0px);
     -webkit-backdrop-filter: blur( 8.0px);
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     border: 1px solid rgba( 255, 255, 255, 0.18);
     padding: 5%;
 }
@@ -109,6 +102,7 @@ a:active {}
     padding: 2%;
     margin-bottom: 3%;
 }
+
 
 .active {
     color: blue;
