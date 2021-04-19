@@ -77,6 +77,8 @@ if (isset($_POST['startDate'])) {
         $userDataExists = true;
     }
 
+    $_SESSION['startDate'] = $startDate;
+
 
 
     if ($userDataExists == false) { //First Time using tracking
@@ -85,14 +87,17 @@ if (isset($_POST['startDate'])) {
         $con->query($sql);
 
 
-        alert("A new start date" . $startDate . "was successfully entered!");
+        // alert("A new start date" . $startDate . "was successfully entered!");
+        header('location:startDateSuccessPage.php');
     } else {
 
         //values already exists for the user, then update data
         $sql = "UPDATE vapetrack SET currentStartDate='$startDate',currentEndDate=null WHERE user_id='$user_id'";
         $con->query($sql);
 
-        alert("A new start date " . $startDate . " was successfully updated!");
+
+        // alert("A new start date " . $startDate . " was successfully updated!");
+        header('location:startDateSuccessPage.php');
     }
 }
 
@@ -144,7 +149,10 @@ if (isset($_POST['endDate'])) {
 
     $newDuration = 1 + (int)$duration;
 
+    $_SESSION['duration'] = $duration;
+    $_SESSION['newDuration'] = $newDuration;
 
+    header('location:endDateSuccessPage.php');
 
     $sql = "INSERT INTO trackhistory(user_id,attempt,duration) VALUES('$user_id','$attempt','$duration')";
     $con->query($sql);
@@ -154,7 +162,7 @@ if (isset($_POST['endDate'])) {
     $con->query($sql);
 
 
-    alert("Good Job.Your vaping duration lasted " . $duration . " days . Try to make the next duration " . $newDuration . ". ");
+    header('location:endDateSuccessPage.php');
 }
 
 if (isset($_POST['logout'])) {
@@ -183,7 +191,7 @@ if (isset($_POST['logout'])) {
 
 
     <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-     <link rel="stylesheet" type="text/css" href="test.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
 
     <script>
         window.onload = function() {
@@ -233,20 +241,26 @@ if (isset($_POST['logout'])) {
                     <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                 </svg><br>Global Forum</a>
             <form action="home.php" method="post">
-                <button name="logout" class="btn btn-outline-primary">Logout</button>
+                <button name="logout" class="btn btn-outline-primary"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                    </svg><br>Logout</button>
             </form>
 
 
         </nav>
-        <div class="d-flex justify-content-evenly shadow-lg">
-            <h1>Welcome to the Vape Pod Tracking</h1>
-        </div>
+
 
 
 
         <div class="container glassmorphic">
 
             <div class="container text-center ">
+                <h6>
+                    <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                    <lord-icon src="https://cdn.lordicon.com/qefxbdtl.json" trigger="loop" delay="150" colors="primary:#121331,secondary:#1663c7" style="width:100px;height:100px">
+                    </lord-icon> Vape Pod Consumption Tracker
+                </h6><br>
 
                 <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
                 <lord-icon src="https://cdn.lordicon.com/nblymyuo.json" trigger="loop" delay="1000" colors="primary:#121331,secondary:#1663c7" style="width:150px;height:150px">
@@ -259,6 +273,8 @@ if (isset($_POST['logout'])) {
             </div>
             <br>
             <div class="row justify-content-md-center text-center"">
+
+            
                 <div class=" col border border-dark shadow">
                 <h6 class="">ICON</h6>
                 <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
@@ -314,9 +330,9 @@ if (isset($_POST['logout'])) {
                 <h6>Step 2: Enter End Date once pod is empty</h6>
                 <form action="track.php" method="post">
                     <label>Day:</label>
-                    <input type="text" placeholder="DD" name="day"><br>
+                    <input type="number" placeholder="DD" name="day" min="1" max="31" required><br>
                     <label>Month:</label>
-                    <input type="number" placeholder="MM" name="month"><br>
+                    <input type="number" placeholder="MM" name="month" min="01" max="12" required><br>
                     <label>Year:</label>
                     <input type=" number" placeholder="YY" name="year" min="2021" max="2021" value="2021"><br>
                     <button type="submit" class="btn btn-danger" name="endDate" <?php if ($startDate == null) { ?>disabled<?php } ?>>Enter End Date</button>

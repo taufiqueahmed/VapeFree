@@ -1,6 +1,6 @@
 body {
-     background: url(assets/abstractBG.png) no-repeat center center fixed;
-     -webkit-background-size: cover;
+    background: url(assets/abstractBG.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
@@ -52,8 +52,13 @@ a:link {
     margin-bottom: 2%;
 }
 
+
 /*.btn {*/
+
+
 /*    width: 200px;*/
+
+
 /*}*/
 
 .qna {
@@ -102,7 +107,6 @@ a:link {
     padding: 2%;
     margin-bottom: 3%;
 }
-
 
 .active {
     color: blue;

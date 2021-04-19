@@ -52,6 +52,7 @@ $result = $con->query($sql);
 
 if (isset($_POST['addNewEntry'])) {
 
+
     $newEntry = $_POST['newEntry'];
 
     $sql = "INSERT INTO journal(user_id,entry) VALUES('$user_id','$newEntry')";
@@ -59,7 +60,8 @@ if (isset($_POST['addNewEntry'])) {
     //check if a connection is made
     if ($con->query($sql) == TRUE) {
         // echo "A new entry was successfully added";
-        alert("A new entry was successfully added");
+
+        header('Location: journalSuccessPage.php');
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }
@@ -92,7 +94,7 @@ if (isset($_POST['logout'])) {
 
     <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
     <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-     <link rel="stylesheet" type="text/css" href="test.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
 
 </head>
 
@@ -119,7 +121,10 @@ if (isset($_POST['logout'])) {
                     <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
                 </svg><br>Global Forum</a>
             <form action="home.php" method="post">
-                <button name="logout" class="btn btn-outline-primary">Logout</button>
+                <button name="logout" class="btn btn-outline-primary"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                    </svg><br>Logout</button>
             </form>
 
 
@@ -174,7 +179,7 @@ if (isset($_POST['logout'])) {
             <div class="form-group container text-center">
                 <form action="home.php" method="post">
                     <label><b>Write a new entry</b></label>
-                    <textarea class="form-control" name="newEntry" rows="3"></textarea>
+                    <textarea class="form-control" name="newEntry" rows="3" required></textarea>
                     <button id="add-entry" name="addNewEntry" class="btn btn-primary">Add</button>
                 </form>
             </div>

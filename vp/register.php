@@ -31,8 +31,9 @@ if (isset($_POST['register'])) {
 
     //check if a connection is made
     if ($con->query($sql) == TRUE) {
-        // echo "You have successfully Registered.Please login in";
-        alert("You have successfully Registered.Please login in");
+        echo "You have successfully Registered.Please login in";
+        // alert("You have successfully Registered.Please login in");
+        header('location:registerSuccessPage.php');
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
     }
@@ -59,7 +60,7 @@ if (isset($_POST['register'])) {
 
     <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
     <!--<link rel="stylesheet" type="text/css" href="style.css">-->
-     <link rel="stylesheet" type="text/css" href="test.css">
+    <link rel="stylesheet" type="text/css" href="test.css">
 </head>
 
 <body>

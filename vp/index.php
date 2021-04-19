@@ -76,7 +76,7 @@ if (isset($_POST['login'])) {
 
     <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
     <link rel="stylesheet" type="text/css" href="test.css">
-       <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
 </head>
 
 <body>
@@ -97,49 +97,49 @@ if (isset($_POST['login'])) {
 
         <div id="login-signup-block" class="glassmorphic  ">
             <div class="container">
-            <h1 class="h3 text-center login-signup-title">ACCESS YOUR ACCOUNT</h1>
+                <h1 class="h3 text-center login-signup-title">ACCESS YOUR ACCOUNT</h1>
 
-            <div class="login-form">
-                <form action="index.php" method="post">
-                    <div class="mb-3">
-                        <label class="form-label text-dark fw-bold display-8">
-                            <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-                            <lord-icon src="https://cdn.lordicon.com/rpztpstw.json" trigger="loop" delay="1500" colors="primary:#121331,secondary:#1663c7" style="width:60px;height:60px">
-                            </lord-icon> Email
-                        </label>
-                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label text-dark fw-bold display-8">
-                            <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-                            <lord-icon src="https://cdn.lordicon.com/etqwxxml.json" trigger="loop" delay="1500" colors="primary:#121331,secondary:#3080e8" style="width:60px;height:60px">
-                            </lord-icon> Password
-                        </label>
-                        <input type="password" class="form-control" name="password" required>
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary" name="login">Login</button>
-                    </div>
-
-                    <br>
-                    <div class="container text-center ">
-
-                        <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-                        <lord-icon src="https://cdn.lordicon.com/nblymyuo.json" trigger="loop" delay="1000" colors="primary:#121331,secondary:#1663c7" style="width:150px;height:150px">
-                        </lord-icon>
-
-                        <div class="col border border-warning border-2  shadow-lg">
-                            <h5 class="display-7 fst-italic fw-normal">Hey Champ! Join the Team. You got this.<br><a style="" href="register.php">Don't have an account?</a></h5>
+                <div class="login-form">
+                    <form action="index.php" method="post">
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold display-8">
+                                <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/rpztpstw.json" trigger="loop" delay="1500" colors="primary:#121331,secondary:#1663c7" style="width:60px;height:60px">
+                                </lord-icon> Email
+                            </label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-dark fw-bold display-8">
+                                <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                                <lord-icon src="https://cdn.lordicon.com/etqwxxml.json" trigger="loop" delay="1500" colors="primary:#121331,secondary:#3080e8" style="width:60px;height:60px">
+                                </lord-icon> Password
+                            </label>
+                            <input type="password" class="form-control" name="password" required>
                         </div>
 
-                    </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" name="login">Login</button>
+                        </div>
+
+                        <br>
+                        <div class="container text-center ">
+
+                            <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+                            <lord-icon src="https://cdn.lordicon.com/nblymyuo.json" trigger="loop" delay="1000" colors="primary:#121331,secondary:#1663c7" style="width:150px;height:150px">
+                            </lord-icon>
+
+                            <div class="col border border-warning border-2  shadow-lg">
+                                <h5 class="display-7 fst-italic fw-normal">Hey Champ! Join the Team. You got this.<br><a style="" href="register.php">Don't have an account?</a></h5>
+                            </div>
+
+                        </div>
 
 
 
-                </form>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
 
         <div class="card glassmorphic qotd">
