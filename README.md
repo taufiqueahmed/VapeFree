@@ -11,7 +11,7 @@ Current Views
 
 
 <b>Home page:</b><br>
-<b>*Note each time you referesh a new healthy suggestion is displayed from the array of suggestions</b>
+<b>*Note: In this view each time you referesh a new healthy suggestion is displayed from the array of suggestions</b>
 <img width="498" alt="Home" src="https://user-images.githubusercontent.com/32074351/115919782-4ad46980-a447-11eb-87c7-1fdf26e1e65f.PNG">
 
 
