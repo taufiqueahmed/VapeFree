@@ -2,10 +2,9 @@
 
 include "config.php";
 
-// Function defnition 
+// An alert message can be displayed to the end user
 function alert($message)
 {
-    // Display the alert box  
     echo "<script>alert('$message');</script>";
 }
 
@@ -16,7 +15,7 @@ $dataPoints = array(
     array("y" => 0, "label" => "0 ATTEMPT"),
 );
 
-
+//Function to draw the consumption graph
 function drawGraph()
 {
     global $con, $dataPoints;
@@ -42,7 +41,6 @@ function drawGraph()
 
 
 
-
 drawGraph();
 
 
@@ -53,11 +51,19 @@ $endDate = "";
 //BUTTONS BEING CLICKED
 
 
-
+//If start date button is clicked
 if (isset($_POST['startDate'])) {
     $day = $_POST['day'];
     $month = $_POST['month'];
     $year = $_POST['year'];
+
+    if(strlen($day)==1){
+        $day="0".$day;
+    }
+    if(strlen($month)==1){
+        $month="0".$month;
+    }
+    
 
     global $startDate;
     $startDate = $year . "/" . $month . "/" . $day;
@@ -101,6 +107,7 @@ if (isset($_POST['startDate'])) {
     }
 }
 
+//If end date button is clicked
 if (isset($_POST['endDate'])) {
 
     global $startDate, $endDate;
@@ -135,11 +142,15 @@ if (isset($_POST['endDate'])) {
     $month = $_POST['month'];
     $year = $_POST['year'];
 
-
+    if(strlen($day)==1){
+        $day="0".$day;
+    }
+    if(strlen($month)==1){
+        $month="0".$month;
+    }
 
     $endDate = $year . "/" . $month . "/" . $day;
-    // echo "START DATE: " . $startDate;
-    // echo "END DATE: " . $endDate;
+ 
 
     $date1 = date_create($startDate);
     $date2 = date_create($endDate);
@@ -165,6 +176,7 @@ if (isset($_POST['endDate'])) {
     header('location:endDateSuccessPage.php');
 }
 
+//If logout button is clicked
 if (isset($_POST['logout'])) {
     session_destroy();
     header('Location: index.php');
@@ -190,7 +202,7 @@ if (isset($_POST['logout'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
 
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+ 
     <link rel="stylesheet" type="text/css" href="test.css">
 
     <script>
@@ -227,7 +239,7 @@ if (isset($_POST['logout'])) {
             <img id="logo" src="assets/vapefree_logo.png" alt="logo">
         </div>
 
-
+        <!---Navigation bar -->
         <nav class="nav navbar-light  d-flex justify-content-evenly shadow-lg nav-pills text-center glassmorphic-nav">
             <a class="nav-link" aria-current="page" href="home.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
@@ -246,13 +258,11 @@ if (isset($_POST['logout'])) {
                         <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
                     </svg><br>Logout</button>
             </form>
-
-
         </nav>
 
 
 
-
+        <!--Consumption info-->
         <div class="container glassmorphic">
 
             <div class="container text-center ">
@@ -276,7 +286,7 @@ if (isset($_POST['logout'])) {
 
             
                 <div class=" col border border-dark shadow">
-                <h6 class="">ICON</h6>
+                <h6 class="">GOAL</h6>
                 <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
                 <lord-icon src="https://cdn.lordicon.com/rfldwidq.json" trigger="loop" delay="1000" colors="primary:#121331,secondary:#1663c7" style="width:100px;height:100px">
                 </lord-icon>
@@ -334,7 +344,7 @@ if (isset($_POST['logout'])) {
                     <label>Month:</label>
                     <input type="number" placeholder="MM" name="month" min="01" max="12" required><br>
                     <label>Year:</label>
-                    <input type=" number" placeholder="YY" name="year" min="2021" max="2021" value="2021"><br>
+                    <input type="number" placeholder="YY" name="year" min="2021" max="2021" value="2021"><br>
                     <button type="submit" class="btn btn-danger" name="endDate" <?php if ($startDate == null) { ?>disabled<?php } ?>>Enter End Date</button>
                 </form>
             </div>
@@ -342,6 +352,7 @@ if (isset($_POST['logout'])) {
     </div>
 
     <br>
+    <!--Consumption Graph -->
     <div class="glassmorphic">
         <h1 class="text-center text-primary">Consumption Graph</h1>
         <div class="container text-center">

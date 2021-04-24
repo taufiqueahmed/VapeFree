@@ -2,28 +2,25 @@
 
 include "config.php";
 
-// Function defnition 
+// An alert message can be displayed to the end user
 function alert($message)
 {
-    // Display the alert box  
+
     echo "<script>alert('$message');</script>";
 }
 
+//If home button is clicked, redirect home page
 if (isset($_POST['home'])) {
     header('Location: index.php');
 }
 
+//If register button is clicked
 if (isset($_POST['register'])) {
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    //Debugging
-    // echo "First Name: " . $first_name;
-    // echo "Last Name: " . $last_name;
-    // echo "email: " . $email;
-    // echo "password: " . $password;
 
     //Sql queries for inserting new user
     $sql = "INSERT INTO user (user_email,user_password,first_name,last_name)
@@ -31,8 +28,6 @@ if (isset($_POST['register'])) {
 
     //check if a connection is made
     if ($con->query($sql) == TRUE) {
-        echo "You have successfully Registered.Please login in";
-        // alert("You have successfully Registered.Please login in");
         header('location:registerSuccessPage.php');
     } else {
         echo "Error: " . $sql . "<br>" . $con->error;
@@ -58,12 +53,13 @@ if (isset($_POST['register'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-    <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+
     <link rel="stylesheet" type="text/css" href="test.css">
 </head>
 
 <body>
+
+    <!---All body contents-->
     <div class="container-fluid">
 
         <!---Main header -->
@@ -71,6 +67,7 @@ if (isset($_POST['register'])) {
             <img id="logo" src="assets/vapefree_logo.png" alt="logo">
         </div>
 
+        <!---Navigation bar -->
         <nav class="glassmorphic-nav ">
             <ul class="navbar container">
                 <li><a class="btn btn-outline-primary" href="index.php">Login</a></li>
@@ -79,6 +76,7 @@ if (isset($_POST['register'])) {
             </ul>
         </nav>
 
+        <!---Register Form-->
         <div id="register-block" class="glassmorphic">
             <form class="login-form" action="register.php" method="post">
 
@@ -104,9 +102,6 @@ if (isset($_POST['register'])) {
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary" name="register">Register</button>
                 </div>
-
-
-
 
             </form>
         </div>

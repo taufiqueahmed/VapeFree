@@ -2,42 +2,42 @@
 
 include "config.php";
 
-// Function defnition 
+// An alert message can be displayed to the end user
 function alert($message)
 {
-
-    // Display the alert box  
     echo "<script>alert('$message');</script>";
 }
 
+// Redirection to the About us page
 function gotoAboutUs()
 {
     header('Location:about.html');
 }
 
 
+//If the register button is clicked in the form
 if (isset($_POST['register'])) {
     header('Location: register.php');
 }
 
-
+//If the login button is clicked in the form
 if (isset($_POST['login'])) {
 
+
+    //set validUser to false, only set to true if it is found in the database
     $validUser = false;
 
 
-
     // Store the submitted data sent 
-    // via POST method, stored  
-    // Temporarily in $_POST structure. 
     $_SESSION['user_email'] = $_POST['email'];
     $_SESSION['user_password'] = $_POST['password'];
 
 
+    //MySql query to retrieve all users
     $sql = "SELECT user_id,user_email,user_password FROM user";
     $result = $con->query($sql);
 
-    //check for valid users
+    //Checks if the current user is valid
     while ($row = $result->fetch_assoc()) {
         if ($_SESSION["user_email"] == $row["user_email"] && $_SESSION["user_password"] == $row["user_password"]) {
             $validUser = true;
@@ -47,14 +47,14 @@ if (isset($_POST['login'])) {
             $_SESSION["last_name"] = $row["last_name"];
             break;
         }
-        // echo "user_id: " . $row["user_id"] . " - user_email: " . $row["user_email"] . " " . $row["user_password"] . "<br>";
     }
 
     if ($validUser) {
-
+        //Valid user gets redirected to homepage
         header('Location: home.php');
     } else {
-        alert("Invalid email and password!");
+        //Alert the user of invalid credentials
+        alert("Invalid email or password!");
     }
     $con->close();
 }
@@ -74,12 +74,13 @@ if (isset($_POST['login'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-    <!-- <!-- <link rel="stylesheet" type="text/css" href="css/util.css"> -->
     <link rel="stylesheet" type="text/css" href="test.css">
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+   
 </head>
 
 <body>
+
+    <!---All body contents-->
     <div class="container-fluid">
 
         <!---Main header -->
@@ -87,6 +88,7 @@ if (isset($_POST['login'])) {
             <img id="logo" src="assets/vapefree_logo.png" alt="logo">
         </div>
 
+        <!---Navigation bar -->
         <nav class=" glassmorphic-nav">
             <ul class="navbar">
                 <li><a class="btn btn-outline-primary" href="index.php">Login</a></li>
@@ -95,6 +97,7 @@ if (isset($_POST['login'])) {
             </ul>
         </nav>
 
+        <!---Login in account content -->
         <div id="login-signup-block" class="glassmorphic  ">
             <div class="container">
                 <h1 class="h3 text-center login-signup-title">ACCESS YOUR ACCOUNT</h1>
@@ -135,13 +138,12 @@ if (isset($_POST['login'])) {
 
                         </div>
 
-
-
                     </form>
                 </div>
             </div>
         </div>
 
+        <!---Quote of the day content -->
         <div class="card glassmorphic qotd">
             <div class="card-header">
                 Quote of the day
@@ -154,6 +156,7 @@ if (isset($_POST['login'])) {
                 </blockquote>
             </div>
         </div>
+
     </div>
     <br>
 

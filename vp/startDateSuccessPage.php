@@ -77,9 +77,9 @@ if (isset($_POST['logout'])) {
         </nav>
 
         <div class="container glassmorphic text-center">
-<!--             <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
+            <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
             <lord-icon src="https://cdn.lordicon.com/gfvlsdsk.json" trigger="loop" colors="primary:#16c72e,secondary:#08a88a" style="width:250px;height:250px">
-            </lord-icon><br> -->
+            </lord-icon><br>
             <script src="https://cdn.lordicon.com/libs/frhvbuzj/lord-icon-2.0.2.js"></script>
             <lord-icon src="https://cdn.lordicon.com/ssdupzsv.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:250px;height:250px">
             </lord-icon>

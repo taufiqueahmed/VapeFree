@@ -3,10 +3,9 @@
 
 include "config.php";
 
-// Function defnition 
+// An alert message can be displayed to the end user
 function alert($message)
-{
-    // Display the alert box  
+{ 
     echo "<script>alert('$message');</script>";
 }
 
@@ -15,6 +14,7 @@ function alert($message)
 
 //BUTTONS BEING CLICKED
 
+//If a new global forum entry is entered
 if (isset($_POST['addNewForumEntry'])) {
 
 
@@ -25,8 +25,6 @@ if (isset($_POST['addNewForumEntry'])) {
 
     //check if a connection is made
     if ($con->query($sql) == TRUE) {
-        // echo "A new forum entry was successfully added";
-        // alert("A new forum entry was successfully added");
 
         header('Location: forumSuccessPage.php');
     } else {
@@ -34,7 +32,7 @@ if (isset($_POST['addNewForumEntry'])) {
     }
 }
 
-
+//If logout button is clicked
 if (isset($_POST['logout'])) {
     session_destroy();
     header('Location: index.php');
@@ -61,13 +59,13 @@ if (isset($_POST['logout'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
     <link rel="stylesheet" type="text/css" href="test.css">
 
 </head>
 
 <body>
+
+    <!---All body contents-->
     <div class="container-fluid">
 
 
@@ -76,6 +74,7 @@ if (isset($_POST['logout'])) {
             <img id="logo" src="assets/vapefree_logo.png" alt="logo">
         </div>
 
+        <!--Navigation bar-->
         <nav class="nav navbar-light  d-flex justify-content-evenly shadow-lg nav-pills text-center glassmorphic-nav">
             <a class="nav-link " aria-current="page" href="home.php"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
@@ -95,7 +94,6 @@ if (isset($_POST['logout'])) {
                     </svg><br>Logout</button>
             </form>
 
-
         </nav>
 
 
@@ -105,6 +103,7 @@ if (isset($_POST['logout'])) {
 
         <br>
         <br>
+        <!---Global Forum info -->
         <div class="container text-center glassmorphic">
 
             <h6 class="display-6">
@@ -132,7 +131,7 @@ if (isset($_POST['logout'])) {
             </form>
         </div>
 
-        <!-- FORUM -->
+        <!-- GLOBAL FORUM -->
         <div class="glassmorphic">
 
             <table class="table table-striped">
